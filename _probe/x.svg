@@ -1,4 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60" role="img" aria-label="파이프라인 점검용">
-  <rect x="2" y="2" width="196" height="56" rx="4" fill="#eef4fb" stroke="#4a7fb5"></rect>
-  <text x="100" y="35" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">pipeline probe</text>
-</svg>
