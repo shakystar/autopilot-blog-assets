@@ -1,0 +1,54 @@
+<svg viewBox="0 0 660 330" width="660" height="330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="가짜 0점 행이 시맨틱 순위 목록에 끼어들면 뒤 후보가 한 칸씩 밀린다. 잘리는 경계에 있던 후보는 목록 밖으로 떨어진다. 융합은 렉시컬 목록과 시맨틱 목록의 아이디만 받는다.">
+  <style>
+    .lbl { font: 12px sans-serif; fill: #333; }
+    .hd { font: bold 12px sans-serif; fill: #111; }
+    .sm { font: 11px sans-serif; fill: #666; }
+    .box { fill: #fff; stroke: #999; }
+    .bad { fill: #fbe9e7; stroke: #c0392b; }
+    .real { fill: #eef4fb; stroke: #4a7fb5; }
+    .gone { fill: #f4f4f4; stroke: #bbb; }
+  </style>
+
+  <text class="hd" x="12" y="20">고치기 전: 시맨틱 후보 목록</text>
+  <rect class="box bad" x="12" y="30" width="238" height="26" rx="3"/>
+  <text class="lbl" x="22" y="47">1위  차원 안 맞는 행 (0점)</text>
+  <rect class="box real" x="12" y="60" width="238" height="26" rx="3"/>
+  <text class="lbl" x="22" y="77">2위  진짜 후보 A</text>
+  <rect class="box real" x="12" y="90" width="238" height="26" rx="3"/>
+  <text class="lbl" x="22" y="107">3위  진짜 후보 B</text>
+  <line x1="8" y1="121" x2="254" y2="121" stroke="#c0392b" stroke-dasharray="4 3"/>
+  <text class="sm" x="12" y="134">여기서 잘린다</text>
+  <rect class="box gone" x="12" y="140" width="238" height="26" rx="3"/>
+  <text class="lbl" x="22" y="157">진짜 후보 C (목록 밖)</text>
+
+  <text class="hd" x="12" y="205">고친 뒤</text>
+  <rect class="box real" x="12" y="215" width="238" height="26" rx="3"/>
+  <text class="lbl" x="22" y="232">1위  진짜 후보 A</text>
+  <rect class="box real" x="12" y="245" width="238" height="26" rx="3"/>
+  <text class="lbl" x="22" y="262">2위  진짜 후보 B</text>
+  <rect class="box real" x="12" y="275" width="238" height="26" rx="3"/>
+  <text class="lbl" x="22" y="292">3위  진짜 후보 C</text>
+  <line x1="8" y1="306" x2="254" y2="306" stroke="#4a7fb5" stroke-dasharray="4 3"/>
+  <text class="sm" x="12" y="319">같은 자리에서 잘린다</text>
+
+  <path d="M258 95 L318 95" stroke="#999" fill="none" marker-end="url(#a)"/>
+  <path d="M258 255 L318 255" stroke="#999" fill="none" marker-end="url(#a)"/>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#999"/>
+    </marker>
+  </defs>
+
+  <rect class="box" x="324" y="30" width="324" height="136" rx="3"/>
+  <text class="hd" x="336" y="50">융합 (RRF)</text>
+  <text class="sm" x="336" y="72">받는 것은 두 개의 id 목록뿐이다</text>
+  <text class="sm" x="336" y="92">렉시컬 목록 (FTS5) + 시맨틱 목록</text>
+  <text class="sm" x="336" y="112">점수는 넘어가지 않는다</text>
+  <text class="sm" x="336" y="136">각 id 점수 = 목록에서의 순위 자리</text>
+  <text class="sm" x="336" y="156">A는 2위, B는 3위, C는 없는 것이 된다</text>
+
+  <rect class="box" x="324" y="215" width="324" height="86" rx="3"/>
+  <text class="sm" x="336" y="240">같은 세 후보가 1위, 2위, 3위가 된다</text>
+  <text class="sm" x="336" y="264">렉시컬 목록과 합칠 때 자리가 달라진다</text>
+  <text class="sm" x="336" y="288">C는 목록에 남아 융합 대상이 된다</text>
+</svg>
